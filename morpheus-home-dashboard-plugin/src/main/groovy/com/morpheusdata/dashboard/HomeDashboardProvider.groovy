@@ -99,6 +99,9 @@ class HomeDashboardProvider extends AbstractDashboardProvider {
 			],
 			activity:[
 				'dashboard-item-recent-activity'
+			],
+			catalog:[
+				'dashboard-item-catalogs'
 			]//,
 			//tasks:[
 				//'dashboard-item-task-failures'

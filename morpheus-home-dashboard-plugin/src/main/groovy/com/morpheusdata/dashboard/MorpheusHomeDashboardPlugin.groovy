@@ -87,6 +87,16 @@ class MorpheusHomeDashboardPlugin extends Plugin {
 			//add the cluster list dashboard
 			ClusterListDashboardProvider clusterListDashboardProvider = new ClusterListDashboardProvider(this, morpheus)
 			this.pluginProviders.put(clusterListDashboardProvider.code, clusterListDashboardProvider)
+			
+			//Catalogs
+			CatalogItemProvider catalogItemProvider = new CatalogItemProvider(this, morpheus)
+			this.pluginProviders.put(catalogItemProvider.code, catalogItemProvider)
+			
+			CatalogsController  catalogsApi = new CatalogsController(this,morpheus)
+			this.setRenderer(new HandlebarsRenderer(this.classLoader))
+			this.controllers.add(catalogsApi)
+			//this.setPermissions(catalogsApi.getPermissions())
+			
 		} catch(e) {
 			log.error("error initializing morpheus home dashboard plugin: ${e}", e)
 		}
